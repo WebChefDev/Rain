@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: rgb(217, 217, 217);
+        height: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        font-size: 3rem;
+        color: #ffffff;
+      }
+      .cloud-container h2 {
+        margin-bottom: 30px;
+        font-size: 2em;
+        color: #ffffff;
+      }
+
+      .cloud-container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        position: relative;
+        text-align: center;
+        background-color: rgb(127, 127, 127);
+        height: auto;
+        width: 100%;
+        border-bottom-left-radius: 100% 50px;
+        border-bottom-right-radius: 100% 50px;
+        box-shadow: 0 0 10px rgba(71, 71, 71, 0.8);
+        z-index: 2;
+      }
+
+      .cloud-container p {
+        font-size: 18px;
+        margin: 20px;
+      }
+
+      .rain-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .house-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+      }
+
+      .brownhouse {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50vw;
+        max-width: 500px;
+        height: auto;
+        margin-bottom: -27px;
+      }
+
+      .brown {
+        height: 200px;
+        width: 100vw;
+        background-color: #fff5e1;
+        position: relative;
+      }
+
+      .sump {
+        position: absolute;
+        top: 0;
+        left: 40%;
+      }
+
+      i {
+        position: absolute;
+        height: 100px;
+        border-radius: 0 0 999px 999px;
+        animation: animate 5s linear infinite;
+      }
+
+      @keyframes animate {
+        0% {
+          transform: translateY(-320px);
+        }
+        100% {
+          transform: translateY(calc(100vh));
+        }
+      }
+
+      @media (max-width: 600px) {
+        .sump {
+          position: absolute;
+          top: 0;
+          left: 30%;
+          height: 100px;
+        }
+      }
+      iframe {
+        margin-top: 50px;
+      }
+      /* SECTION THAT EXPLAINS WHAT A SUMP PUMP IS*/
+      .brown-section {
+        background-color: #fff5e1;
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .brown-section h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 2em;
+      }
+
+      .cards-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 30px;
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+      }
+
+      .greencard {
+        background-color: #28a745;
+        border-radius: 12px;
+        padding: 25px;
+        flex: 1 1 300px;
+        max-width: 320px;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .greencard:hover {
+        transform: translateY(-10px);
+      }
+
+      .greencard h2 {
+        margin-bottom: 15px;
+        font-size: 1.5em;
+        color: rgb(60, 60, 60);
+      }
+
+      .greencard p {
+        font-size: 1.1em;
+        line-height: 1.6;
+        text-align: justify;
+      }
+
+      @media (max-width: 768px) {
+        .greencard {
+          flex: 1 1 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .brown-section h2 {
+          font-size: 1.5em;
+        }
+
+        .greencard h2 {
+          font-size: 1.2em;
+        }
+
+        .greencard p {
+          font-size: 1em;
+        }
+      }
+
+      /*the rest*/
+
+      .why-cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .why-cards-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .light-green {
+        background-color: #d0f0c0;
+        border-radius: 8px;
+        padding: 40px 20px;
+      }
+
+      .light-green h2 {
+        margin-bottom: 10px;
+      }
+
+      .testimonials-section {
+        background-color: #d0f0c0;
+        padding: 40px 20px;
+        margin-top: 40px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 850px;
+      }
+
+      .testimonials-section h2 {
+        margin-bottom: 20px;
+        font-size: 1.8em;
+      }
+
+      .testimonial {
+        margin-bottom: 20px;
+        font-style: italic;
+        color: #4b4b4b;
+      }
+
+      .footer {
+        background-color: #202020;
+        color: rgb(206, 206, 206);
+        text-align: center;
+        width: 100vw;
+        padding: 20px 20px;
+        margin-top: 40px;
+        margin-bottom: -40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cloud-container">
+      <h1>Hey Edmonton Area Homeowner!</h1>
+      <p>Is your home ready for our next big storm??</p>
+      <p>Are you seeing signs of water in your basement after storms?</p>
+      <p>Have you noticed a musty odor or dampness?</p>
+      <p>Worried about protecting your home and belongings from flooding?</p>
+      <h2>If so, you need a sump pump!</h2>
+    </div>
+    <div class="rain-container"></div>
+
+    <div class="house-container">
+      <img class="brownhouse" src="house.svg" alt="House" />
+    </div>
+
+    <div class="brown">
+      <img class="sump" src="sump.svg" />
+    </div>
+
+    <div class="brown-section margintop">
+      <h2>So what is a sump pump anyhow?</h2>
+      <p>
+        A sump pump is part of a larger system that prevents water from entering
+        your house. It works like this:
+      </p>
+      <div class="cards-container">
+        <div class="greencard">
+          <h2>A: Weeping Tile</h2>
+          <p>
+            Weeping tile is essential for managing groundwater. These perforated
+            pipes collect excess water from around your foundation, directing it
+            away to prevent flooding.
+          </p>
+        </div>
+        <div class="greencard">
+          <h2>B: Sump Pump Bucket</h2>
+          <p>
+            The sump pump bucket collects water from your basement, working in
+            tandem with the sump pump to keep your home dry. Regularly checking
+            the bucket ensures optimal operation.
+          </p>
+        </div>
+        <div class="greencard">
+          <h2>C: Sump Discharge</h2>
+          <p>
+            The sump discharge pipe carries water away from your home to a safe
+            drainage area. In Edmonton, water is discharged to the sewer in the
+            winter, and to the streets in the summer.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brown-section">
+      <div class="light-green">
+        <h2>What Sets Edmonton Sump Pump Apart?</h2>
+        <p>
+          We understand that choosing the right team for your sump pump
+          installation in Edmonton is an important decision. Here's why
+          homeowners trust us:
+        </p>
+        <br />
+        <div>
+          <p>
+            <strong>Expertise You Can Count On:</strong> With years of
+            experience, our team knows the unique challenges Edmonton homes face
+            when it comes to water damage.
+          </p>
+          <br />
+          <p>
+            <strong>Top-Quality Equipment:</strong> We only install high-quality
+            sump pumps that are built to last, ensuring your home is protected
+            for years to come.
+          </p>
+          <br />
+          <p>
+            <strong>Professional Service:</strong> From your first call to the
+            final installation, we provide professional, courteous service.
+          </p>
+          <br />
+          <p>
+            <strong>Emergency Services:</strong> Water problems can happen
+            anytime, which is why we offer emergency Edmonton sump pump service.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brown-section">
+      <h2>How Our Sump Pump Installation Process Works</h2>
+      <p>
+        We make it easy for Edmonton homeowners to protect their basements with
+        our seamless installation process:
+      </p>
+      <div class="cards-container">
+        <div class="greencard">
+          <h2>1. Free Consultation</h2>
+          <p>
+            Our team will assess your home's specific needs and recommend the
+            best sump pump for your situation.
+          </p>
+        </div>
+        <div class="greencard">
+          <h2>2. Professional Installation</h2>
+          <p>
+            Our skilled technicians will handle the full installation process,
+            ensuring that your system meets City regulations.
+          </p>
+        </div>
+        <div class="greencard">
+          <h2>3. Ongoing Maintenance</h2>
+          <p>We offer routine service to keep your pump running smoothly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brown-section">
+      <div class="testimonials-section">
+        <h2>Real Stories from Edmonton Homeowners</h2>
+        <div class="testimonial">
+          "We were dealing with basement flooding every spring until we hired
+          Edmonton Sump Pump to install a new system. The installation was
+          quick, and the peace of mind has been priceless!" - Jessica H.,
+          Edmonton
+        </div>
+        <div class="testimonial">
+          "Our old sump pump failed during a big storm, and we were in a panic.
+          Edmonton Sump Pump came out right away and replaced it with a
+          top-of-the-line system. We couldn't be happier with the service." -
+          Mike B., Sherwood Park
+        </div>
+        <div class="testimonial">
+          "We've had constant water issues in our basement since moving into our
+          home. After getting a new sump pump installed by Edmonton Sump Pump,
+          we finally feel secure!" - Sara M., St. Albert
+        </div>
+      </div>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSe0IIPB3AC4ACSfZcE7tAL99SkezG-vbsSHP6NuBsddqfoqyA/viewform?embedded=true"
+        width="640"
+        height="2584"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        >Loading…</iframe
+      >
+    </div>
+    <div class="footer">
+      <p>© 2024 Edmonton Sump Pump</p>
+    </div>
+
+    <script>
+      const rainContainer = document.querySelector(".rain-container");
+      const background = [
+        "linear-gradient(transparent, aqua)",
+        "linear-gradient(transparent, white)",
+      ];
+
+      const amount = 100;
+      for (let i = 0; i < amount; i++) {
+        const drop = document.createElement("i");
+        drop.style.width = Math.random() * 5 + "px";
+        drop.style.left = Math.random() * rainContainer.offsetWidth + "px";
+        drop.style.animationDelay = Math.random() * -20 + "s";
+        drop.style.animationDuration = Math.random() * 5 + "s";
+        drop.style.background =
+          background[Math.floor(Math.random() * background.length)];
+        drop.style.opacity = Math.random() + 0.2;
+        rainContainer.appendChild(drop);
+      }
+    </script>
+  </body>
+</html>
